@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_30_140638) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_30_143212) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pulse_categories", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "pulse_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_pulse_categories_on_category_id"
+    t.index ["pulse_id"], name: "index_pulse_categories_on_pulse_id"
+  end
+
+  create_table "pulses", force: :cascade do |t|
+    t.string "job_role"
+    t.string "job_description"
+    t.string "company_name"
+    t.string "company_description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pulses_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +53,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_30_140638) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "pulse_categories", "categories"
+  add_foreign_key "pulse_categories", "pulses"
+  add_foreign_key "pulses", "users"
 end
