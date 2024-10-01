@@ -13,4 +13,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :pulses do
+    resources :pulse_categories, only: [:index, :show] do
+      resources :questions, only: [:index, :show]
+    end
+  end
+
+                                                
+  resources :categories, only: [:index, :show]
+  resources :questions, only: [:index, :show] do
+    resources :answers, only: [:create, :update, :destroy]
+  end
+
 end
