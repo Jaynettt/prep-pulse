@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
                                                 
   resources :categories, only: [:index, :show]
+  
   resources :questions, only: [:index, :show] do
     resources :answers, only: [:create, :update, :destroy]
   end
