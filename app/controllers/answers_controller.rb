@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
 
+<<<<<<< HEAD
   def index
     @anwer =  Answer.all
   end
@@ -23,4 +24,9 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:content)
   end
 end
+=======
+  def show
+    @answer = Answer.all
+  end
+>>>>>>> master
 end

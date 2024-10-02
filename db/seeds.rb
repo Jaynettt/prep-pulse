@@ -1,20 +1,4 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_o
-# db/seeds.rb
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
-# db/seeds.rb
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 puts "Clearing old data..."
 Answer.delete_all
 Question.delete_all
@@ -22,7 +6,9 @@ PulseCategory.delete_all
 Category.delete_all
 Pulse.delete_all
 User.delete_all
+
 puts "Old data cleared."
+
 # Create Users
 puts "Creating users..."
 user1 = User.create!(
@@ -39,13 +25,17 @@ user2 = User.create!(
   first_name: "Daenerys",
   last_name: "Targaryen"
 )
+
 puts "Users created."
+
 # Create Categories
 puts "Creating categories..."
 category1 = Category.create!(name: "Technology")
 category2 = Category.create!(name: "Health")
 category3 = Category.create!(name: "Finance")
+
 puts "Categories created."
+
 # Create Pulses
 puts "Creating pulses..."
 pulse1 = Pulse.create!(
@@ -62,13 +52,17 @@ pulse2 = Pulse.create!(
   company_description: "Expert data analytics firm",
   user: user2
 )
+
 puts "Pulses created."
+
 # Create Pulse Categories
 puts "Linking pulses with categories..."
 pulse_category1 = PulseCategory.create!(category: category1, pulse: pulse1)
 pulse_category2 = PulseCategory.create!(category: category2, pulse: pulse2)
 pulse_category3 = PulseCategory.create!(category: category3, pulse: pulse1)
+
 puts "Pulses linked with categories."
+
 # Create Questions
 puts "Creating questions..."
 question1 = Question.create!(
@@ -79,7 +73,9 @@ question2 = Question.create!(
   content: "How can I improve my health?",
   pulse_category: pulse_category2
 )
+
 puts "Questions created."
+
 # Create Answers
 puts "Creating answers..."
 Answer.create!(
@@ -92,5 +88,6 @@ Answer.create!(
   question: question2,
   chat_review: "Solid tips!"
 )
+
 puts "Answers created."
 puts "Seeding completed successfully!"
