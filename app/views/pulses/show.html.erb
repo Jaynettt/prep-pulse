@@ -1,0 +1,7 @@
+<h1>welcome to the pulse show</h1>
+<%= @pulse.job_role %>
+<%= link_to "Edit Pulse", edit_pulse_path(@pulse) %>
+<%= link_to "Delete",
+  pulse_path(@pulse),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
