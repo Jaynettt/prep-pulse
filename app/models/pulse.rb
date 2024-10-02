@@ -2,6 +2,7 @@ class Pulse < ApplicationRecord
   belongs_to :user
   has_many :pulse_categories
   has_many :categories, through: :pulse_categories
+  # has_one_attatched :file
 
   # validates :job_role, presence: true
   # validates :job_description, presence: true
