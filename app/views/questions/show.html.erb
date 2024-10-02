@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="questions">
+    <div class="vwew">
+        <h4><%= @question.content %></h4>
+           <%= simple_form_for [@question, @answer] do |f| %>
+            <%= f.input :content, placeholder:"Type your answer here" %>
+            <%= f.submit "Submit answer", class: "btn btn-primary" %>
+          <% end %>
+    </div>
+  </div>
+</div>
