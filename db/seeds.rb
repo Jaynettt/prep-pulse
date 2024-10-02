@@ -5,6 +5,9 @@
 # Example:
 #
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
+
+#     MovieGenre.find_o
+
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # Clear existing data
@@ -106,3 +109,4 @@ Answer.create!(
 
 puts "Answers created."
 puts "Seeding completed successfully!"
+
