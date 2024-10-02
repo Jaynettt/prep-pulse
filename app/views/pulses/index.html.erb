@@ -1,6 +1,8 @@
-<h1>welcome to all your pulses</h1>
-<% @pulses.each do |pulse| %>
-  <%= link_to pulse_path(pulse) do %>
-    <ul><%= pulse.company_name %> - <%= pulse.job_role %></ul>
+<div class="pulses-container">
+  <h1 class="text-center">welcome to all your pulses</h1>
+  <% @pulses.each do |pulse| %>
+    <%= link_to pulse_path(pulse) do %>
+      <ul><%= pulse.company_name %> - <%= pulse.job_role %></ul>
+    <% end %>
   <% end %>
-<% end %>
+</div>
