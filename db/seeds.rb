@@ -1,18 +1,4 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 
-#     MovieGenre.find_o
-
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-# Clear existing data
-# Clear existing data
-# Clear existing data
 puts "Clearing old data..."
 Answer.delete_all
 Question.delete_all
@@ -32,7 +18,6 @@ user1 = User.create!(
   first_name: "Jon",
   last_name: "Snow"
 )
-
 user2 = User.create!(
   email: "daenerys.targaryen@example.com",
   password: "dragonqueen123",     # Devise will encrypt this
@@ -60,7 +45,6 @@ pulse1 = Pulse.create!(
   company_description: "Leading tech company in the North",
   user: user1
 )
-
 pulse2 = Pulse.create!(
   job_role: "Data Analyst",
   job_description: "Analyzes large data sets",
@@ -85,28 +69,11 @@ question1 = Question.create!(
   content: "What are the best coding practices?",
   pulse_category: pulse_category1
 )
-
 question2 = Question.create!(
   content: "How can I improve my health?",
   pulse_category: pulse_category2
 )
 
 puts "Questions created."
-
-# Create Answers
-puts "Creating answers..."
-Answer.create!(
-  content: "Use version control and write unit tests.",
-  question: question1,
-  chat_review: "Good advice!"
-)
-
-Answer.create!(
-  content: "Eat more vegetables and exercise regularly.",
-  question: question2,
-  chat_review: "Solid tips!"
-)
-
 puts "Answers created."
 puts "Seeding completed successfully!"
-

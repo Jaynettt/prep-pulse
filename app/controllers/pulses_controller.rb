@@ -2,7 +2,7 @@ class PulsesController < ApplicationController
   def index
     @pulses = Pulse.all
   end
-
+  
   def show
     @pulse = Pulse.find(params[:id])
   end
