@@ -75,19 +75,5 @@ question2 = Question.create!(
 )
 
 puts "Questions created."
-
-# Create Answers
-puts "Creating answers..."
-Answer.create!(
-  content: "Use version control and write unit tests.",
-  question: question1,
-  chat_review: "Good advice!"
-)
-Answer.create!(
-  content: "Eat more vegetables and exercise regularly.",
-  question: question2,
-  chat_review: "Solid tips!"
-)
-
 puts "Answers created."
 puts "Seeding completed successfully!"

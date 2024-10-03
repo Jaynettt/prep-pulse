@@ -1,5 +1,10 @@
-<div>
-  <% @questions.each do |question| %>
-    <p><%= question.content %> </p>
-    <% end %>
+<div class="container mt-3">
+  <div class="gbuk">
+      <h3> Pulse - #{pulse_id} questions. </h3>
+        <ol>
+          <% @questions.each do |question| %>
+            <li><%= question.content %></li>
+          <% end %>
+        </ol>
+  </div>
 </div>
