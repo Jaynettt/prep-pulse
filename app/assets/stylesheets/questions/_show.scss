@@ -1,0 +1,23 @@
+
+.fghy{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  visibility: visible;
+  align-items: center;
+
+  .form-control{
+    border: none;
+    border-bottom: 1px solid black;
+    height: 1rem;
+    padding-left: 0px;
+    &:focus, :active{
+
+      box-shadow: none;
+    }
+  }
+}
