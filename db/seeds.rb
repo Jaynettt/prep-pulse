@@ -1,4 +1,4 @@
-
+ENV["SEEDING"] = 'true'
 puts "Clearing old data..."
 Answer.delete_all
 Question.delete_all
@@ -30,9 +30,10 @@ puts "Users created."
 
 # Create Categories
 puts "Creating categories..."
-category1 = Category.create!(name: "Technology")
-category2 = Category.create!(name: "Health")
-category3 = Category.create!(name: "Finance")
+category1 = Category.create!(name: "Technical Skills")
+category2 = Category.create!(name: "Soft Skills")
+category3 = Category.create!(name: "Psychometric skills")
+
 
 puts "Categories created."
 
@@ -65,3 +66,4 @@ puts "Pulses linked with categories."
 
 # Create Questions
 puts "Seeding completed successfully!"
+ENV["SEEDING"] = 'false'

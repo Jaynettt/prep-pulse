@@ -15,11 +15,16 @@
 
 <hr>
 
+<% @pulse.pulse_categories.each do |category|%>
+<%= link_to category.category.name, pulse_pulse_category_questions_path(@pulse, category) %>
+<% end %>
+
+
 <h2>Progress Report by Category</h2>
 <table class="table table-bordered">
   <thead>
     <tr>
-    
+
       <th>Average Evaluation</th>
     </tr>
   </thead>
@@ -27,8 +32,10 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td><%= @answers.select { |a| a.question.pulse_category.category_id == category.id }.count %></td>
-        <td><%= number_with_precision(@category_evaluations[category.id], precision: 2) %> / 10</td>
+        <!--<td><%#= @answers.select { |a| a.question.pulse_category.category_id == category.id }.count %></td>-->
+        <td>some info about answers</td>
+        <!--<td><%#= number_with_precision(@category_evaluations[category.id], precision: 2) %> / 10</td>-->
+        <td>evaluation of your responses</td>
       </tr>
     <% end %>
   </tbody>
