@@ -6,8 +6,15 @@ class QuestionsController < ApplicationController
     # redirect_to question_path(@question)
   end
 
+
   def show
     @question = Question.find(params[:id])
-    @answer = Answer.new
+
+    if @question.nil?
+      redirect_to questions_path, alert: "Question not found."
+    else
+      @answer= Answer.new
+    end
+
   end
 end
