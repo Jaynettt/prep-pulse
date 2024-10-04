@@ -6,7 +6,7 @@
       <hr>
       <% @pulses.each do |pulse| %>
         <ul>
-        <%= pulse.job_role %>
+          <%= pulse.job_role, pulse_dashboard_path, data: {turbo_frame: "main_content"} %>
         <hr>
         </ul>
       <% end %>
@@ -18,7 +18,9 @@
 
 
     <div class="main-content">
-      <h1 class="text-center">Content</h1>
+      <%= turbo_frame_tag "main_content" do %>
+        <h1 class="text-center">Content</h1>
+      <% end %>
     </div>
 
 
