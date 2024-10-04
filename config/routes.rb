@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   
   resources :questions, only: [:index, :show] do
     resources :answers, only: [:create, :update, :destroy]
+
   end
 
+  get "dashboard/pulse", to: "dashboard#pulse", as: "pulse_dashbpaord"
 end
