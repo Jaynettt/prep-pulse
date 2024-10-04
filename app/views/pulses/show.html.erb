@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "main_content" do %>
 <div class="text-center">
   <h1 class="mt-4 mb-5">welcome to the pulse show</h1>
   <%= @pulse.job_role %>
@@ -14,9 +15,9 @@
 <p>Company Description: <%= @pulse.company_description %></p>
 
 <hr>
-
+<h3>Explore Interview Questions by Category</h3>
 <% @pulse.pulse_categories.each do |category|%>
-<%= link_to category.category.name, pulse_pulse_category_questions_path(@pulse, category) %>
+<%= link_to category.category.name, pulse_pulse_category_questions_path(@pulse, category), data: {turbo: false} %>
 <% end %>
 
 
@@ -44,3 +45,4 @@
 
 
 </div>
+<% end %>

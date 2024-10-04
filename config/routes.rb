@@ -21,17 +21,17 @@ Rails.application.routes.draw do
     end
   end
 
-                                                
+
   resources :categories, only: [:index, :show] do
-    member do 
+    member do
       get 'questions', to: 'categories#question_first'
     end
   end
-  
+
   resources :questions, only: [:index, :show] do
     resources :answers, only: [:create, :update, :destroy]
 
   end
 
-  get "dashboard/pulse", to: "dashboard#pulse", as: "pulse_dashbpaord"
+  get "dashboard/pulse", to: "dashboard#pulse", as: "pulse_dashboard"
 end

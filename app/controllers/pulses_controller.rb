@@ -30,7 +30,7 @@ class PulsesController < ApplicationController
     @pulse = Pulse.new(pulse_params)
     @pulse.user = current_user
     if @pulse.save!
-      redirect_to pulse_path(@pulse)
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
