@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "main_content" do %>
 <div class="text-center">
-  <h1 class="mt-4 mb-5">welcome to the pulse show</h1>
+  <h1 class="mt-4 mb-5">Your Pulse</h1>
   <%= @pulse.job_role %>
   <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_pulse_path(@pulse) %>
   <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
