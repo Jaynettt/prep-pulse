@@ -2,9 +2,21 @@ class PulsesController < ApplicationController
   def index
     @pulses = Pulse.all
   end
-  
+
   def show
     @pulse = Pulse.find(params[:id])
+    @categories = Category.all
+
+    @categories = @pulse.categories.where(name: ['Soft skills', 'Technical skills', 'Psychometric skills'])
+
+    # @answers = @pulse.answers
+
+    # @category_evaluations = {}
+    # @categories.each do |category|
+    #   category_answers = @answers.select { |answer| answer.question.pulse_category.category_id == category.id }
+    #   total_evaluation = category_answers.sum(&:evaluation)
+    #   evaluation_count = category_answers.size
+    #   @category_evaluations[category.id] = evaluation_count > 0 ? (total_evaluation.to_f / evaluation_count) : 0
   end
 
   def new
@@ -15,7 +27,7 @@ class PulsesController < ApplicationController
     @pulse = Pulse.new(pulse_params)
     @pulse.user = current_user
     if @pulse.save!
-      redirect_to pulse_path(@pulse)
+      redirect_to categories_path(@pulse)
     else
       render :new, status: :unprocessable_entity
     end

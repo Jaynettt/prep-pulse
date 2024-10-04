@@ -1,0 +1,36 @@
+<div class="dashboard-container d-flex">
+    <div class="sbar-container mt-5">
+      <h4 class="ms-5 mb-3 mt-4"> Overview </h4>
+      <hr>
+      <h4 class="ms-5"> Pulses </h4>
+      <hr>
+      <% @pulses.each do |pulse| %>
+        <ul>
+        <%= pulse.job_role %>
+        <hr>
+        </ul>
+      <% end %>
+      
+    </div>
+
+
+
+
+
+    <div class="main-content">
+      <h1 class="text-center">Content</h1>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
