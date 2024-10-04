@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.all
-    @question = Question.first
+    pulse_category = PulseCategory.find(params[:pulse_category_id])
+    @questions = pulse_category.questions
+    
 
     # redirect_to question_path(@question)
   end

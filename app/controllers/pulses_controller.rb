@@ -8,7 +8,7 @@ class PulsesController < ApplicationController
     @categories = Category.all
 
     @categories = @pulse.categories.where(name: ['Soft skills', 'Technical skills', 'Psychometric skills'])
-
+    # @questions = @pulse.pulse_categories.flat_map(&:questions)
     # @answers = @pulse.answers
 
     # @category_evaluations = {}
@@ -19,6 +19,9 @@ class PulsesController < ApplicationController
     #   @category_evaluations[category.id] = evaluation_count > 0 ? (total_evaluation.to_f / evaluation_count) : 0
   end
 
+
+
+
   def new
     @pulse = Pulse.new
   end
@@ -27,7 +30,7 @@ class PulsesController < ApplicationController
     @pulse = Pulse.new(pulse_params)
     @pulse.user = current_user
     if @pulse.save!
-      redirect_to categories_path(@pulse)
+      redirect_to pulse_path(@pulse)
     else
       render :new, status: :unprocessable_entity
     end
@@ -54,6 +57,6 @@ class PulsesController < ApplicationController
   private
 
   def pulse_params
-    params.require(:pulse).permit(:job_role, :company_name, :company_description)
+    params.require(:pulse).permit(:job_role, :company_name, :company_description, category_ids: [])
   end
 end
