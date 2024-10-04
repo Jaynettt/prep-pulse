@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   end
 
                                                 
-  resources :categories, only: [:index, :show]
+  resources :categories, only: [:index, :show] do
+    member do 
+      get 'questions', to: 'categories#question_first'
+    end
+  end
   
   resources :questions, only: [:index, :show] do
     resources :answers, only: [:create, :update, :destroy]
