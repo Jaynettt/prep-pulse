@@ -7,3 +7,33 @@
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 </div>
+
+<h1><%= @pulse.job_role %></h1>
+<p><%= @pulse.job_description %></p>
+<p>Company: <%= @pulse.company_name %></p>
+<p>Company Description: <%= @pulse.company_description %></p>
+
+<hr>
+
+<h2>Progress Report by Category</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+    
+      <th>Average Evaluation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= @answers.select { |a| a.question.pulse_category.category_id == category.id }.count %></td>
+        <td><%= number_with_precision(@category_evaluations[category.id], precision: 2) %> / 10</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+</div>
