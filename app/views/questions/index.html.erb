@@ -1,10 +1,14 @@
 <div class="container mt-3">
   <div class="gbuk">
-      <h3> Pulse - #{pulse_id} questions. </h3>
-        <ol>
+      <h3> This pulse interview questions.</h3>
+      <ol>
+        <% if @questions.present? %>
           <% @questions.each do |question| %>
             <li><%= question.content %></li>
           <% end %>
-        </ol>
+        <% else %>
+          <p>No questions available...</p>
+        <% end %>
+      </ol>
   </div>
 </div>

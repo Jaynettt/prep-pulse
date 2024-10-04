@@ -64,16 +64,4 @@ pulse_category3 = PulseCategory.create!(category: category3, pulse: pulse1)
 puts "Pulses linked with categories."
 
 # Create Questions
-puts "Creating questions..."
-question1 = Question.create!(
-  content: "What are the best coding practices?",
-  pulse_category: pulse_category1
-)
-question2 = Question.create!(
-  content: "How can I improve my health?",
-  pulse_category: pulse_category2
-)
-
-puts "Questions created."
-puts "Answers created."
 puts "Seeding completed successfully!"
