@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     if @question.nil?
       redirect_to questions_path, alert: "Question not found."
     else
-      @answer= Answer.new
+      @answer = Answer.new
     end
 
   end
