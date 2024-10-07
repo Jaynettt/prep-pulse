@@ -16,9 +16,8 @@ Rails.application.routes.draw do
 
 
   resources :pulses do
-    resources :pulse_categories, only: [:index, :show] do
-      resources :questions, only: [:index, :show]
-    end
+    resources :pulse_categories, only: [:index, :show] 
+    resources :questions, only: [:index, :show]
   end
 
 

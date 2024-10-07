@@ -19,21 +19,26 @@ class PulsesController < ApplicationController
     #   @category_evaluations[category.id] = evaluation_count > 0 ? (total_evaluation.to_f / evaluation_count) : 0
   end
 
-
-
-
   def new
     @pulse = Pulse.new
   end
 
   def create
     @pulse = Pulse.new(pulse_params)
-    @pulse.user = current_user
-    if @pulse.save!
-      redirect_to root_path
+  @pulse.user = current_user
+
+  if @pulse.save
+    # Fetch the first question directly associated with this pulse
+    first_question = @pulse.questions.order(:id).first
+
+    if first_question
+      redirect_to pulse_question_path(@pulse, first_question)
     else
-      render :new, status: :unprocessable_entity
+      redirect_to pulses_path, notice: "No questions found for this Pulse."
     end
+  else
+    render :new, status: :unprocessable_entity
+  end
   end
 
   def edit
