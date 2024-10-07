@@ -25,7 +25,7 @@ class PulsesController < ApplicationController
 
   def create
     @pulse = Pulse.new(pulse_params)
-  @pulse.user = current_user
+    @pulse.user = current_user
 
   if @pulse.save
     # Fetch the first question directly associated with this pulse

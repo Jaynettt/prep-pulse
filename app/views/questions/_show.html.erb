@@ -7,7 +7,7 @@
   <div class="questions" style="display: flex; justify-content: center; margin-top: 60px;">
     <div class="vwew mt-3">
       <h4><%= @question.content %></h4>
-      <%= simple_form_for [@question, @answer], data: { timer_target: "form" } do |f| %>
+      <%= simple_form_for [question, answer], data: { timer_target: "form" } do |f| %>
         <%= f.input :content, placeholder: "Type your answer here...", label: false %>
         <%= f.submit "Continue" %>
       <% end %>

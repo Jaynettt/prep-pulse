@@ -6,14 +6,11 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @pulse = Pulse.find(params[:pulse_id])
-    @pulse_category = PulseCategory.find(params[:pulse_category_id])
     @question = Question.find(params[:id])
     if @question.nil?
       redirect_to questions_path, alert: "Question not found."
     else
       @answer = Answer.new
-
     end
   end
 

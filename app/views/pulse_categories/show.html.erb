@@ -6,7 +6,10 @@
           <% @questions.each do |question| %>
             <li><%= question.content %></li>
               <% question.answers.each do |answer| %>
+              <h3> Your answer: </h3>
                 <%= answer.content %>
+                <h3>Your feedback: </h3>
+                <%= answer.chat_review %>
                 <% end %>
           <% end %>
         <% else %>
