@@ -1,21 +1,11 @@
 <%= turbo_frame_tag "main_content" do %>
-<div class="text-center">
-  <h1 class="mt-4 mb-5">Your Pulse</h1>
-  <%= @pulse.job_role %>
-  <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_pulse_path(@pulse) %>
-  <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
-    pulse_path(@pulse),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-</div>
 
-<h1><%= @pulse.job_role %></h1>
+<h1><%= @pulse.job_role.capitalize %> Pulse</h1>
 <p><%= @pulse.job_description %></p>
 <p>Company: <%= @pulse.company_name %></p>
 <p>Company Description: <%= @pulse.company_description %></p>
 
-<hr>
-<%= link_to "PRACTICE", pulse_question_path(@pulse, @pulse.questions.first), data: {turbo: false} %>
+<%= link_to "PRACTICE", pulse_question_path(@pulse, @pulse.questions.first), data: {turbo: false}, class:"btn-blue" %>
 
 <h2>Progress Report by Category</h2>
 <table class="table table-bordered">

@@ -16,3 +16,10 @@
 @import "categories/index";
 @import "questions/show";
 
+body{
+  background-color: rgb(220, 235, 236);
+  a{
+    text-decoration: none;
+    color: rgb(26, 145, 162);
+  }
+}
