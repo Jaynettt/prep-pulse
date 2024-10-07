@@ -3,8 +3,10 @@ class AnswersController < ApplicationController
     @answer =  Answer.all
   end
 
+
   def create
     @question = Question.find(params[:question_id])
+
     @pulse = @question.pulse_category.pulse
     @answer = Answer.new(answer_params)
     @answer.question = @question
@@ -20,6 +22,7 @@ class AnswersController < ApplicationController
     else
       flash[:error] = @answer.errors.full_messages.join(', ')
       redirect_to question_path(@question), status: :unprocessable_entity
+
     end
   end
   
