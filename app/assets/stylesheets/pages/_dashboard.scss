@@ -1,17 +1,27 @@
 .dashboard-container{
-  background-color: rgb(246, 246, 246);
+  background-color: $pulse-light-blue;
 }
 
 .sbar-container{
-  border: 2px solid;
+
   width: 15%;
-  height: 40rem;
-  background-color: rgba(255, 204, 145, 0.352);
+  height: 100vh;
+  background-color: rgba(26, 145, 162, 0.1);
+  box-shadow: rgba(26, 145, 162, 0.6) 0px 0px 0px 1px inset;
+  color: rgb(26, 145, 162);
 
 
 }
 
 .main-content {
   flex-grow: 1;
+  padding: 40px;
+  height: 100vh;
+  overflow: scroll;
 
+}
+.icon-add{
+  font-size: 32px;
+  display:flex;
+  justify-content: center;
 }

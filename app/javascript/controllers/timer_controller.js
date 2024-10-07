@@ -6,7 +6,7 @@ export default class extends Controller {
 
   connect() {
     // Set the total time for the quiz (in seconds)
-    const totalTime = 0.5 * 60; // This should likely be 15 * 60 for 15 minutes
+    const totalTime = 2 * 60; // This should likely be 15 * 60 for 15 minutes
     let timeLeft = totalTime;
     console.log(timeLeft);
 
