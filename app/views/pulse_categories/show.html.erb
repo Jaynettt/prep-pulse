@@ -1,13 +1,24 @@
 <div class="container mt-3">
   <div class="gbuk">
-      <h3> This pulse interview questions.</h3>
+      <h3>This pulse interview questions.</h3>
       <ol>
         <% if @questions.present? %>
           <% @questions.each do |question| %>
-            <li><%= question.content %></li>
-              <% question.answers.each do |answer| %>
-                <%= answer.content %>
+            <li>
+              <strong><%= question.content %></strong>
+              <ul>
+                <% if question.answers.present? %>
+                  <% question.answers.each do |answer| %>
+                    <li>
+                      <%= answer.content %> 
+                      <p>Rating: <%= answer.evaluation || 'Not rated yet' %></p> <!-- Show rating or default text -->
+                    </li>
+                  <% end %>
+                <% else %>
+                  <li>No answers available for this question.</li>
                 <% end %>
+              </ul>
+            </li>
           <% end %>
         <% else %>
           <p>No questions available...</p>

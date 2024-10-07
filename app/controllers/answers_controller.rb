@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   def index
-    @answer =  Answer.all
+    @answer = Answer.all
   end
 
   def create
@@ -8,8 +8,8 @@ class AnswersController < ApplicationController
     @pulse = @question.pulse_category.pulse
     @answer = Answer.new(answer_params)
     @answer.question = @question
+
     # @answer.user = current_user
-  
     if @answer.save
       @next_question = Question.find_by(id: @question.id + 1)
       if @next_question && @next_question.pulse_category.pulse == @pulse
@@ -22,7 +22,6 @@ class AnswersController < ApplicationController
       redirect_to question_path(@question), status: :unprocessable_entity
     end
   end
-  
 
   private
 
