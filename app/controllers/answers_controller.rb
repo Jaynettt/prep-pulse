@@ -4,16 +4,21 @@ class AnswersController < ApplicationController
     @answer =  Answer.all
   end
 
+
   def create
     @question = Question.find(params[:question_id])
-    @answer = Answer.new(answer_params)
-    @answer.question = @question
-    # @answer.user = current_user
+    @answer = @question.answers.build(answer_params)
     if @answer.save
-      @next_question = Question.find(@question.id + 1)
-      redirect_to question_path(@next_question)
+      # Find the next question
+      @next_question = @question.pulse_category.questions.where('id > ?', @question.id).first
+      if @next_question
+        redirect_to pulse_pulse_category_question_path(@question.pulse_category.pulse, @question.pulse_category, @next_question)
+      else
+        redirect_to pulse_pulse_category_path(@question.pulse_category.pulse, @question.pulse_category), notice: "Congratulations! You have answered all questions."
+      end
     else
-      redirect_to question_path(@question), status: :unprocessable_entity
+      # Render the question show page with errors
+      redirect_to pulse_pulse_category_question_path(@question.pulse_category.pulse, @question.pulse_category, @question), status: :unprocessable_entity
     end
   end
 
