@@ -1,18 +1,22 @@
 
-  <div class="fghy">
-    <div class="questions" style = "display: flex; justify-content: center">
-      <div class="vwew mt-3">
-          <h4><%= @question.content %></h4>
-            <%= simple_form_for [@question, @answer] do |f| %>
-              <%= f.input :content, placeholder:"Type your answer here...", label: false %>
-              <%= f.submit "Continue" %>
-            <% end %>
-      </div>
+<div class="fghy">
+  <div class="questions" style="display: flex; justify-content: center">
+    <div class="vwew mt-3">
+      <h4><%= @question.content %></h4>
+      <%= simple_form_for [@question, @answer] do |f| %>
+        <%= f.input :content, placeholder: "Type your answer here...", label: false %>
+        <%= f.submit "Continue" %>
+      <% end %>
+      <% if @next_question.nil? %>
+        <p>Congratulations! You have answered all questions from this category.</p>
+      <% end %>
     </div>
   </div>
+
   <% @question.answers.each do |answer| %>
   <li>
     <p>Rating: <%= answer.evaluation.present? ? answer.evaluation : 'Not rated yet' %></p>
   </li>
 <% end %>
+</div>
 
