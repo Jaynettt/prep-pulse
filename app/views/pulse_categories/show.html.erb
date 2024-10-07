@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "category_content" do %>
 <div class="container mt-3">
   <div class="gbuk">
       <h3>This pulse interview questions.</h3>
@@ -11,7 +12,7 @@
                 <% if question.answers.present? %>
                   <% question.answers.each do |answer| %>
                     <li>
-                      <%= answer.content %> 
+                      <%= answer.content %>
                       <p>Rating: <%= answer.evaluation || 'Not rated yet' %></p> <!-- Show rating or default text -->
                       <h3>Your feedback: </h3>
                 <%= answer.chat_review %>
@@ -29,3 +30,4 @@
       </ol>
   </div>
 </div>
+<% end %>
