@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
       redirect_to questions_path, alert: "Question not found."
     else
       @answer = Answer.new
-      @next_question = @pulse_category.questions.where('id > ?', @question.id).first
+
     end
   end
 
