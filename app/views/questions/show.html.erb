@@ -12,4 +12,11 @@
       <% end %>
     </div>
   </div>
+
+  <% @question.answers.each do |answer| %>
+  <li>
+    <p>Rating: <%= answer.evaluation.present? ? answer.evaluation : 'Not rated yet' %></p>
+  </li>
+<% end %>
 </div>
+
