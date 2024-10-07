@@ -4,6 +4,7 @@
       <ol>
         <% if @questions.present? %>
           <% @questions.each do |question| %>
+
             <li>
               <strong><%= question.content %></strong>
               <ul>
@@ -12,6 +13,8 @@
                     <li>
                       <%= answer.content %> 
                       <p>Rating: <%= answer.evaluation || 'Not rated yet' %></p> <!-- Show rating or default text -->
+                      <h3>Your feedback: </h3>
+                <%= answer.chat_review %>
                     </li>
                   <% end %>
                 <% else %>
