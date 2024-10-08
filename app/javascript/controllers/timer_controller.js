@@ -2,11 +2,13 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="timer"
 export default class extends Controller {
-  static targets = ["form"];
+  static targets = ["form", "start"];
 
   connect() {
     // Set the total time for the quiz (in seconds)
     const totalTime = 2 * 60; // This should likely be 15 * 60 for 15 minutes
+    const start = Date.now()
+    this.startTarget.value = start
     let timeLeft = totalTime;
     console.log(timeLeft);
 
@@ -23,6 +25,7 @@ export default class extends Controller {
         const seconds = timeLeft % 60;
 
         // Update the timer display with mm:ss format
+
         timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
         // Decrease the time left by one second
@@ -31,27 +34,5 @@ export default class extends Controller {
     }, 1000);
   }
 
-  submitForm() {
-    fetch(this.formTarget.action, {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content // Include CSRF token
-      },
-      body: new FormData(this.formTarget)
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        this.element.outerHTML = data.form
-        // Handle successful submission, e.g., redirect or update UI
-      })
-      .catch(error => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
-  }
+
 }
