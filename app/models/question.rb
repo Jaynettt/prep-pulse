@@ -21,9 +21,10 @@ class Question < ApplicationRecord
 
   def set_content
     client = OpenAI::Client.new
-    chatgpt_response = client.chat(parameters: {
-    model: "gpt-4",  # Use the correct model
-    messages: [{ role: "user", content: "Generate an interview question for #{pulse_category.category.name} preparations. The job is #{pulse_category.pulse.job_role}. Here are the previous questions: #{pulse_category.questions.each { |question| puts question } if pulse_category.questions}. Please make it different to the previous questions. Only give me the question, none of your own input like: here is a question" }]
+    chatgpt_response = client.chat(parameters:
+    {
+      model: "gpt-4",
+      messages: [{ role: "user", content: "Generate an interview question for #{pulse_category.category.name} preparations. The job is #{pulse_category.pulse.job_role}. Here are the previous questions: #{pulse_category.questions.each { |question| puts question } if pulse_category.questions}. Please make it different to the previous questions. Only give me the question, none of your own input like: here is a question" }]
     })
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 

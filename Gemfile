@@ -43,6 +43,8 @@ gem "cloudinary"
 gem "ruby-openai"
 gem "jbuilder"
 gem 'pdf-reader'
+gem 'rtesseract'
+gem "solid_queue"
 
 group :development, :test do
   gem 'dotenv-rails', groups: [:development, :test]
