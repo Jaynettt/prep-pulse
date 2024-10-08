@@ -2,12 +2,13 @@
   <!-- Countdown Timer Icon and Display -->
   <div id="timer" class="timer">
     <i class="fas fa-hourglass-half"></i>
-    <span class="time-display">02:00</span>
+    <span class="time-display" data-timer-target="timeDisplay">02:00</span>
   </div>
   <div class="questions" style="display: flex; justify-content: center; margin-top: 60px;">
     <div class="vwew mt-3">
       <h4><%= @question.content %></h4>
-      <%= simple_form_for [question, answer], data: { timer_target: "form" } do |f| %>
+      <%= simple_form_for [@question, @answer], data: { timer_target: "form" } do |f| %>
+        <%= f.input :start_time, nil, data: { timer_target: "start" } %> <!-- Ensure this is correct -->
         <%= f.input :content, placeholder: "Type your answer here...", label: false %>
         <%= f.submit "Continue" %>
       <% end %>
