@@ -3,7 +3,6 @@ class Pulse < ApplicationRecord
   has_many :pulse_categories
   has_many :categories, through: :pulse_categories
   has_many :questions, through: :pulse_categories
-  # has_one_attatched :file
   after_create :create_questions, unless: :seeding?
 
   # validates :job_role, presence: true

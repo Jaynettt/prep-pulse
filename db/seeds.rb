@@ -11,29 +11,52 @@ puts "Old data cleared."
 
 # Create Users
 puts "Creating users..."
-user1 = User.create!(
-  email: "jon.snow@example.com",
-  password: "password123",        # Devise will encrypt this
-  password_confirmation: "password123",  # Confirmation for validation
-  first_name: "Jon",
-  last_name: "Snow"
-)
-user2 = User.create!(
-  email: "daenerys.targaryen@example.com",
-  password: "dragonqueen123",     # Devise will encrypt this
-  password_confirmation: "dragonqueen123",  # Confirmation for validation
-  first_name: "Daenerys",
-  last_name: "Targaryen"
-)
 
-puts "Users created."
+# Define the file paths
+cv_file_path_1 = Rails.root.join('app', 'assets', 'cvs', 'Web_Developer_CV_Example.pdf') 
+cv_file_path_2 = Rails.root.join('app', 'assets', 'cvs', 'Web_Developer_CV_Example.pdf')
+
+# Check if CV files exist
+if File.exist?(cv_file_path_1) && File.exist?(cv_file_path_2)
+  user1 = User.create!(
+    email: "jon.snow@example.com",
+    password: "password123",
+    password_confirmation: "password123",
+    first_name: "Jon",
+    last_name: "Snow",
+    cv_evaluation: "Strong technical skills and leadership qualities."
+  )
+  user1.cv.attach(
+    io: File.open(cv_file_path_1),
+    filename: "Web_Developer_CV_Example.pdf",
+    content_type: 'application/pdf'
+  )
+
+  user2 = User.create!(
+    email: "daenerys.targaryen@example.com",
+    password: "dragonqueen123",
+    password_confirmation: "dragonqueen123",
+    first_name: "Daenerys",
+    last_name: "Targaryen",
+    cv_evaluation: "Excellent communication and strategic thinking."
+  )
+  user2.cv.attach(
+    io: File.open(cv_file_path_2),
+    filename: "Web_Developer_CV_Example.pdf",
+    content_type: 'application/pdf'
+  )
+
+  puts "Users created."
+else
+  puts "Error: One or both CV files do not exist. Please check the file paths."
+  exit
+end
 
 # Create Categories
 puts "Creating categories..."
 category1 = Category.create!(name: "Technical Skills")
 category2 = Category.create!(name: "Soft Skills")
-category3 = Category.create!(name: "Psychometric skills")
-
+category3 = Category.create!(name: "Psychometric Skills")
 
 puts "Categories created."
 
@@ -64,6 +87,5 @@ pulse_category3 = PulseCategory.create!(category: category3, pulse: pulse1)
 
 puts "Pulses linked with categories."
 
-# Create Questions
 puts "Seeding completed successfully!"
 ENV["SEEDING"] = 'false'
