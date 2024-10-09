@@ -1,0 +1,10 @@
+ <%= turbo_frame_tag "main_content" do %>
+<div class="card-purple">  
+    <% @category_averages.each do |category| %>
+      <% category.each do |name, average| %>
+        <p><strong><%= name %></strong></p>
+        <p>Average Evaluation: <strong><%= average %></strong></p>
+      <% end %>
+    <% end %>
+</div>
+  <% end %>

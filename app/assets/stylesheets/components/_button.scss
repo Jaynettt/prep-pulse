@@ -7,3 +7,20 @@
     background-color:rgb(21, 114, 128);
   }
 }
+
+.btn-purple-gradient{
+  border-radius: 16px;
+  color: white;
+  padding: 40px 32px;
+  background-image: linear-gradient(to right, #A922B8 0%, #2F22A6  53%, #000000  100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+  margin-bottom: 52px;
+  text-align: center;
+  &:hover {
+    background-position: right center;
+  }
+
+}
+
+ 

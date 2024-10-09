@@ -19,11 +19,11 @@ cv_file_path_2 = Rails.root.join('app', 'assets', 'cvs', 'Web_Developer_CV_Examp
 # Check if CV files exist
 if File.exist?(cv_file_path_1) && File.exist?(cv_file_path_2)
   user1 = User.create!(
-    email: "jon.snow@example.com",
-    password: "password123",
-    password_confirmation: "password123",
-    first_name: "Jon",
-    last_name: "Snow",
+    email: "dhh@rails.com",
+    password: "dhh@rails.com",
+    password_confirmation: "dhh@rails.com",
+    first_name: "Daniel",
+    last_name: "Hansen",
     cv_evaluation: "Strong technical skills and leadership qualities."
   )
   user1.cv.attach(
@@ -33,11 +33,11 @@ if File.exist?(cv_file_path_1) && File.exist?(cv_file_path_2)
   )
 
   user2 = User.create!(
-    email: "daenerys.targaryen@example.com",
-    password: "dragonqueen123",
-    password_confirmation: "dragonqueen123",
-    first_name: "Daenerys",
-    last_name: "Targaryen",
+    email: "mats@ruby.com",
+    password: "mats@ruby.com",
+    password_confirmation: "mats@ruby.com",
+    first_name: "Mats",
+    last_name: "Matsimuto",
     cv_evaluation: "Excellent communication and strategic thinking."
   )
   user2.cv.attach(

@@ -1,27 +1,56 @@
 .dashboard-container{
-  background-color: $pulse-light-blue;
+  background-color: white;
 }
 
 .sbar-container{
 
-  width: 15%;
-  height: 100vh;
-  background-color: rgba(26, 145, 162, 0.1);
-  box-shadow: rgba(26, 145, 162, 0.6) 0px 0px 0px 1px inset;
-  color: rgb(26, 145, 162);
+  width:400px;
+  height: calc(100vh - 56px);
+  overflow-y: scroll;
+  background-color: rgb(0, 0, 0);
+  // border-radius: 24px;
+  color: rgb(255, 255, 255);
+  flex-direction: column;
+  display: flex;
+  padding: 40px;
+  a{
+    color: white;
+  }
 
 
+}
+
+.sbar-container::-webkit-scrollbar {
+  display: none;
 }
 
 .main-content {
   flex-grow: 1;
   padding: 40px;
-  height: 100vh;
-  overflow: scroll;
+  height: calc(100vh - 56px);
+  overflow-y: scroll;
 
+}
+
+.main-content::-webkit-scrollbar {
+  display: none;
 }
 .icon-add{
   font-size: 32px;
   display:flex;
   justify-content: center;
+}
+
+.pulses-list{
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-icon{
+  img{
+    width: 30px;
+  }
+  margin-right: 16px;
+
 }
