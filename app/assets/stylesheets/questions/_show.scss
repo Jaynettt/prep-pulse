@@ -1,6 +1,6 @@
 
 .fghy{
-  background-color:$pulse-light-blue ;
+  background-color:white ;
   position: relative;
   height: 100vh;
   width: 100%;
@@ -20,6 +20,19 @@
     &:focus, :active{
 
       box-shadow: none;
+    }
+  }
+  .time-display{
+    font-size: 32px;
+    background-image: linear-gradient(to right, #A922B8 0%, #2F22A6  53%, #000000  100%);
+    background-size: 200% auto;
+    border-radius: 16px;
+    color: white;
+    padding: 8px 16px;
+  }
+  .timer{
+    i{
+      font-size: 24px;
     }
   }
 }

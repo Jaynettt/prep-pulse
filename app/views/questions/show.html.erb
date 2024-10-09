@@ -2,17 +2,17 @@
   <div class="fghy" data-controller="timer">
     <!-- Countdown Timer Icon and Display -->
     <div id="timer" class="timer">
-      <i class="fas fa-hourglass-half"></i>
+      
       <span class="time-display" data-timer-target="timeDisplay">02:00</span>
     </div>
 
-    <div class="questions" style="display: flex; justify-content: center; margin-top: 60px;">
+    <div class="questions card-purple" style="display: flex; justify-content: center; margin-top: 60px;">
       <div class="vwew mt-3">
         <h5><%= "#{@question.question_number} <i class='fas fa-arrow-right'></i> #{@question.content}".html_safe %></h5>
         <%= simple_form_for [@question, @answer], data: { timer_target: "form" } do |f| %>
           <%= f.input :start_time, as: :string, input_html: {data: { timer_target: "start" }}, wrapper_html: {class: "d-none"} %>
           <%= f.input :content, as: :text, input_html: { placeholder: "Type your answer here...",class: "scrollable-textarea", style: "overflow-y: auto; height: 100px;"},label: false %>
-          <%= f.submit "Continue" %>
+          <%= f.submit "Continue", class: "btn-black" %>
         <% end %>
       </div>
     </div>
