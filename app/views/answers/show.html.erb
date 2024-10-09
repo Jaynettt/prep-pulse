@@ -6,7 +6,7 @@
       <span class="time-display"><%= @formatted_duration%></span>
     </div>
 
-    <div class="questions" style="display: flex; justify-content: center; margin-top: 60px;">
+    <div class="questions card-purple" style="display: flex; justify-content: center; margin-top: 60px;">
       <div class="vwew mt-3">
         <h5><%= "#{@question.question_number} <i class='fas fa-arrow-right'></i> #{@question.content}".html_safe %> </h5>
         <br>
@@ -25,9 +25,9 @@
       <% if @question.pulse_category.pulse.questions.last == @question %>
         <% unless @previous_question.nil? %>
           
-        <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-up", style: "color: #000000;") , question_answer_path(@previous_question, @previous_question.answers.last), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
+        <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-up ", style: "color: #000000;") , question_answer_path(@previous_question, @previous_question.answers.last), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
         <% end %>
-        <%= link_to 'Complete!', root_path, class: "btn", style: "background-color: white; border: 1px solid #000;" %>
+        <%= link_to 'Complete!', root_path, class: " btn-black" %>
       <% else %>
         <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-down", style: "color: #0c0d0d;") , question_answer_path(@next_question, @next_question.answers.first), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
         <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-up", style: "color: #000000;") , question_answer_path(@previous_question, @previous_question.answers.last), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
