@@ -5,7 +5,6 @@ class AnswersController < ApplicationController
     @answer = Answer.all
   end
 
-
   def create
     @question = Question.find(params[:question_id])
     @pulse = @question.pulse_category.pulse
@@ -14,13 +13,11 @@ class AnswersController < ApplicationController
 
     if params[:answer][:start_time].present?
       start_time_ms = params[:answer][:start_time].to_i
-      @start_time = Time.at(start_time_ms / 1000.0) # Convert to seconds and create Time object
+      @start_time = Time.at(start_time_ms / 1000.0)
       @answer.duration_spent = Time.now - @start_time
     else
-      @answer.duration_spent = 0 # Default value if start_time is not provided
+      @answer.duration_spent = 0
     end
-    # @answer.user = current_user
-
     if @answer.save
       @next_question = Question.find_by(id: @question.id + 1)
       if @next_question && @next_question.pulse_category.pulse == @pulse
@@ -33,7 +30,6 @@ class AnswersController < ApplicationController
       redirect_to question_path(@question), status: :unprocessable_entity
     end
   end
-
 
   private
 

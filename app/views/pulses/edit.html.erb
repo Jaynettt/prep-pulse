@@ -1,10 +1,12 @@
-<div class="container">
-  <h1 class="mb-5 mt-5">Update your Pulse</h1>
-  <%= simple_form_for(@pulse) do |f| %>
-    <%= f.input :job_role %>
-    <%= f.input :cv, as: :file %>
-    <%= f.input :company_name%>
-    <%= f.input :company_description %>
-    <%= f.submit value:"Update your Pulse", class: "btn btn-warning" %>
-  <% end %>
-</div>
+<%= turbo_frame_tag "main_content" do %>
+  <div class="container">
+    <h1 class="mb-5 mt-5">Update your Pulse</h1>
+      <%= simple_form_for(@pulse) do |f| %>
+      <%= f.input :job_role %>
+      <%= f.input :company_name%>
+      <%= f.input :company_description %>
+      <%= f.association :categories, as: :check_boxes  %>
+      <%= f.submit value:"Update your Pulse", class: "btn btn-warning", data: {turbo: false} %>
+    <% end %>
+  </div>
+<% end %>

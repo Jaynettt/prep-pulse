@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_08_152134) do
     t.datetime "updated_at", null: false
     t.text "chat_review"
     t.integer "evaluation"
+    t.float "duration_spent"
     t.datetime "start_time"
     t.datetime "end_time"
     t.index ["question_id"], name: "index_answers_on_question_id"

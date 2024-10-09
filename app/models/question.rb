@@ -17,6 +17,14 @@ class Question < ApplicationRecord
     end
   end
 
+  def average_answer_rating
+    total = 0
+    answers.each do |answer|
+      total += answer.evaluation
+    end
+    return total.fdiv(answers.count)
+  end
+
   private
 
   def set_content
