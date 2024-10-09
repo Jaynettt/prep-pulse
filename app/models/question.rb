@@ -4,6 +4,9 @@ class Question < ApplicationRecord
   after_create :content, unless: :seeding?
 
   # validates :content, presence: true, length: { maximum: 500 }
+  def pulse
+    pulse_category.pulse
+  end
 
   def seeding?
     ENV["SEEDING"] == 'true'
@@ -17,12 +20,19 @@ class Question < ApplicationRecord
     end
   end
 
+
+  def question_number
+
+    pulse.questions.index(self) + 1
+  end
+
   def average_answer_rating
     total = 0
     answers.each do |answer|
       total += answer.evaluation
     end
     return total.fdiv(answers.count)
+
   end
 
   private
