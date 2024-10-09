@@ -12,11 +12,11 @@ class AnswersController < ApplicationController
     @formatted_duration = format_duration(@answer.duration_spent)
     @next_question = Question.find_by(id: @question.id + 1)
     @previous_question = Question.find_by(id: @question.id - 1)
-      if @next_question && @next_question.pulse_category.pulse == @pulse
+    if @next_question && @next_question.pulse_category.pulse == @pulse
 
-      else
-       @next_question = nil
-      end
+    else
+      @next_question = nil
+    end
   end
 
   def format_duration(seconds)
