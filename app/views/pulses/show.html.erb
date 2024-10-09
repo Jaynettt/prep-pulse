@@ -1,9 +1,13 @@
 <%= turbo_frame_tag "main_content" do %>
-
-<h1><%= @pulse.job_role.capitalize %> Pulse</h1>
-<p><%= @pulse.job_description %></p>
-<p>Company: <%= @pulse.company_name %></p>
-<p>Company Description: <%= @pulse.company_description %></p>
+  <div class="card-purple">
+    <h1><%= @pulse.job_role.capitalize %> Pulse</h1>
+    <p><%= @pulse.job_description %></p>
+    <p>Company: <%= @pulse.company_name %></p>
+    <p>Company Description: <%= @pulse.company_description %></p>
+    <%# <%= link_to edit_pulse_path(@pulse) do %>
+      <%# <i class="fa-solid fa-pen-to-square"></i>
+    <% end %> 
+  </div>
 
 <%= link_to "PRACTICE", pulse_question_path(@pulse, @pulse.questions.first), data: {turbo: false}, class:"btn-blue" %>
 
@@ -13,17 +17,12 @@
     <tr>
 
       <th>Average Evaluation</th>
+
     </tr>
   </thead>
   <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <!--<td><%#= @answers.select { |a| a.question.pulse_category.category_id == category.id }.count %></td>-->
-        <td>some info about answers</td>
-        <!--<td><%#= number_with_precision(@category_evaluations[category.id], precision: 2) %> / 10</td>-->
-        <td>evaluation of your responses</td>
-      </tr>
+    <% @pulse.pulse_categories.each do |category|%>
+      <p><%= category.category.name %>: <%= category.average_rating %>/10</p>
     <% end %>
   </tbody>
 </table>

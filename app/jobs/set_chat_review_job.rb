@@ -14,7 +14,7 @@ class SetChatReviewJob < ApplicationJob
     response = client.chat(parameters: {
       model: "gpt-4",
       messages: [
-        { role: "user", content: "Rate the following answer on a scale of 0 to 10: '#{answer.content}'. Give me only the number." }
+        { role: "user", content: "Rate the following answer on a scale of 0sche to 10: '#{answer.content}'. Give me only the number." }
       ]
     })
 
