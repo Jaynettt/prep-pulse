@@ -1,16 +1,35 @@
-<div class="fghy" data-controller="timer">
-  <!-- Countdown Timer Icon and Display -->
-  <div id="timer" class="timer">
-    <i class="fas fa-hourglass-half"></i>
-    <span class="time-display" data-timer-target="timeDisplay">02:00</span>
-  </div>
+<div class="container">
+  <div class="fghy">
+    <!-- Duration Spent Display -->
+    <div id="timer" class="timer">
+      <i class="fas fa-hourglass-half"></i>
+      <span class="time-display"><%= @formatted_duration%></span>
+    </div>
 
-  <div class="questions" style="display: flex; justify-content: center; margin-top: 60px;">
-    <div class="vwew mt-3">
-      <h4><%= @question.content %></h4>
-      <%= simple_form_for [@question, @answer], data: { timer_target: "form" } do |f| %>
-        <%= f.input :start_time, nil, data: { timer_target: "start" } %>
-        <%= f.input :content, placeholder: "Type your answer here...", label: false %>
+    <div class="questions" style="display: flex; justify-content: center; margin-top: 60px;">
+      <div class="vwew mt-3">
+        <h5><%= "#{@question.question_number} <i class='fas fa-arrow-right'></i> #{@question.content}".html_safe %> </h5>
+        <br>
+        <div class="answer-content" style="width: 100%; height: 100px; overflow-y: auto;">
+          <p><strong>Answer: </strong> <%= @answer.content %></p>
+          <p>Rating: <%= @answer.evaluation || 'Not rated yet' %></p>
+        </div>
+
+
+  <%#= @question.question_number %<!--> / <%#= @question.pulse.questions.count %>
+        <!-- Display Chat Review -->
+        <div class="chat-review" style="margin-top: 20px;">
+          <p><strong>Review:</strong> <%= @answer.chat_review || 'No review available.' %></p>
+        </div>
+
+      <% if @question.pulse_category.pulse.questions.last == @question %>
+        <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-up", style: "color: #000000;") , question_answer_path(@previous_question, @previous_question.answers.last), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
+        <%= link_to 'Complete!', root_path, class: "btn", style: "background-color: white; border: 1px solid #000;" %>
+      <% else %>
+        <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-down", style: "color: #0c0d0d;") , question_answer_path(@next_question, @next_question.answers.first), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
+        <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-up", style: "color: #000000;") , question_answer_path(@previous_question, @previous_question.answers.last), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
       <% end %>
+      </div>
     </div>
   </div>
+</div>

@@ -5,11 +5,11 @@ class SetChatReviewJob < ApplicationJob
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
     model: "gpt-4",  # Use the correct model
-    messages: [{ role: "user", content: "Give some constructive feedback for this answer #{answer.content}. The interview question was #{answer.question.content}"}]
+    messages: [{ role: "user", content: "Give some constructive feedback for this answer #{answer.content}. The interview question was #{answer.question.content}. Make it 500 characters maximum"}]
     })
     new_chat_review = chatgpt_response["choices"][0]["message"]["content"]
 
-    
+
 
     response = client.chat(parameters: {
       model: "gpt-4",

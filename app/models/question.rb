@@ -4,6 +4,9 @@ class Question < ApplicationRecord
   after_create :content, unless: :seeding?
 
   # validates :content, presence: true, length: { maximum: 500 }
+  def pulse
+    pulse_category.pulse
+  end
 
   def seeding?
     ENV["SEEDING"] == 'true'
@@ -15,6 +18,11 @@ class Question < ApplicationRecord
     else
       super
     end
+  end
+
+  def question_number
+
+    pulse.questions.index(self) + 1
   end
 
   private

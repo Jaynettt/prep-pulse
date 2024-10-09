@@ -28,6 +28,7 @@
   </tbody>
 </table>
 <h3>Explore Interview Questions by Category</h3>
+<%=link_to 'Review answers', question_answer_path(@pulse.questions.first, @pulse.questions.first.answers.first ), data: {turbo: false} %>
 <% @pulse.pulse_categories.each do |category|%>
 <%= link_to category.category.name, pulse_pulse_category_path(@pulse, category), data: {turbo_frame: "category_content"} %>
 <% end %>

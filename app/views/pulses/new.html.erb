@@ -1,10 +1,13 @@
-<div class="new-pulse-container">
-<h1 class="mb-4">Create your Pulse</h1>
-<%= simple_form_for(@pulse) do |f| %>
-  <%= f.input :job_role %>
-  <%= f.input :company_name%>
-  <%= f.input :company_description %>
-  <%= f.association :categories, as: :check_boxes  %>
-  <%= f.submit value:"Create your Pulse", class: "button" %>
-<% end %>
+
+<div class="container mt-3">
+  <div class="new-pulse-container">
+  <h1 class="mb-4">Create your Pulse</h1>
+  <%= simple_form_for(@pulse) do |f| %>
+    <%= f.input :job_role %>
+    <%= f.input :company_name%>
+    <%= f.input :company_description %>
+    <%= f.association :categories, as: :check_boxes  %>
+    <%= f.submit value:"Create your Pulse", class: "button" %>
+  <% end %>
+  </div>
 </div>
