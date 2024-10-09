@@ -6,9 +6,9 @@
     <p>Company Description: <%= @pulse.company_description %></p>
     <%# <%= link_to edit_pulse_path(@pulse) do %>
       <%# <i class="fa-solid fa-pen-to-square"></i>
-    <% end %> 
+    <% end %>
   </div>
-  <div class="d-flex justify-content-evenly m-5">
+  <div class="d-flex justify-content-between m-5">
     <%= link_to "Practice", pulse_question_path(@pulse, @pulse.questions.first), data: {turbo: false}, class:"btn-black" %>
     <%=link_to 'Review answers', question_answer_path(@pulse.questions.first, @pulse.questions.first.answers.first ), data: {turbo: false}, class: "btn-black" %>
   </div>
