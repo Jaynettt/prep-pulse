@@ -12,7 +12,7 @@ puts "Old data cleared."
 # Create Users
 puts "Creating users..."
 
-# Define the file paths
+# Define the file paths for CVs
 cv_file_path_1 = Rails.root.join('app', 'assets', 'cvs', 'Web_Developer_CV_Example.pdf') 
 cv_file_path_2 = Rails.root.join('app', 'assets', 'cvs', 'Web_Developer_CV_Example.pdf')
 

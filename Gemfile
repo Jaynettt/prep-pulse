@@ -46,6 +46,7 @@ gem 'pdf-reader'
 gem 'rtesseract'
 gem "solid_queue"
 gem "solid_cable"
+gem "chartkick"
 
 group :development, :test do
   gem 'dotenv-rails', groups: [:development, :test]

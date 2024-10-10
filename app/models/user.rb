@@ -15,31 +15,27 @@ class User < ApplicationRecord
   end
 
   def average_evaluation_by_category
-    # Get all categories linked to this user's pulses
     categories_with_evaluations = Category
-      .joins(pulse_categories: :pulse)  # Join to access pulses
+      .joins(pulse_categories: :pulse)
       .where(pulses: { user_id: self.id })
       .distinct
       .pluck(:id, :name)
   
-    # Iterate over each category and calculate the average evaluation
     category_averages = categories_with_evaluations.map do |category_id, category_name|
-      # Get all evaluations for this category, filtering by user's pulses and category
       evaluations = Answer
-        .joins(question: { pulse_category: { category: :pulse_categories } }) # Join through Question to PulseCategory
-        .joins(question: { pulse_category: :pulse })  # Ensure to join to the pulses
+        .joins(question: { pulse_category: { category: :pulse_categories } })
+        .joins(question: { pulse_category: :pulse })
         .where(pulse_categories: { category_id: category_id }, pulses: { user_id: self.id })
         .pluck(:evaluation)
   
-      # Calculate average evaluation, ensuring there's no division by zero
       average = evaluations.any? ? evaluations.compact.sum.to_f / evaluations.size : 0
   
-      # Return the category name and average evaluation
-      { category_name => average }
+      [category_name, average]
     end
   
-    category_averages
+    category_averages.to_h # Return as a hash for Chartkick
   end
+  
 
   private
 
