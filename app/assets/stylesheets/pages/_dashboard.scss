@@ -72,3 +72,13 @@
   }
   margin-right: 16px; 
 }
+.avatar{
+  width: 30px;
+  height: 30px;
+}
+.profile{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 20px;
+}

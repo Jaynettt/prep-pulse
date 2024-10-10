@@ -1,10 +1,11 @@
-  <%= turbo_frame_tag "main_content" do %>
-<div class="card-purple">  
+ <%= turbo_frame_tag "main_content" do %>
+<div class="card-purple" data-controller="chart">  
     <% @category_averages.each do |category| %>
       <% category.each do |name, average| %>
         <p><strong><%= name %></strong></p>
-        <p>Average Evaluation: <strong><%= average %></strong></p>
+        <%# <p>Average Evaluation: <strong><%= average %></strong></p> %>
       <% end %>
     <% end %>
+<%= pie_chart current_user.average_evaluation_by_category %>
 </div>
   <% end %>

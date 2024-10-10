@@ -47,7 +47,9 @@ gem 'rtesseract'
 gem "solid_queue"
 gem "solid_cable"
 gem "chartkick"
+
 gem 'groupdate'
+
 
 group :development, :test do
   gem 'dotenv-rails', groups: [:development, :test]
