@@ -1,18 +1,18 @@
 <div class="dashboard-container d-flex">
   <div class="sbar-container">
     <%= link_to  overview_path, data: {turbo_frame: "main_content"} do %>
-      <h3 class="ms-5 mb-5 mt-4 overview-link">
-        <span class="dashboard-icon"> <%= image_tag "pie-chart" %></span>
-        Overview
+      <h3 class="ms-5 mb-5 mt-4 overview-link"> 
+      <span class="dashboard-icon"> <%= image_tag "pie-chart" %></span>
+      Overview 
       </h3>
     <% end %>
-    <h3 class="ms-5">
+    <h3 class="ms-5"> 
       <span class="dashboard-icon"> <%= image_tag "pulse" %></span>
       Pulses
     </h3>
     <div class="pulses-list">
       <% @pulses.each do |pulse| %>
-        <%= link_to pulse.job_role, pulse_path(pulse), data: {turbo_frame: "main_content"}, class:"btn-purple-gradient" %>
+          <%= link_to pulse.job_role, pulse_path(pulse), data: {turbo_frame: "main_content"}, class:"btn-purple-gradient" %>
       <% end %>
     </div>
     <div class="d-flex">
@@ -21,23 +21,31 @@
         New Pulse
       <% end %>
     </div>
-    <div>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu", id: "user-avatar" %>
-    </div>
+      <div class=" profile border-top mt-5 d-flex">
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup ="true" aria-expanded="false">
+            <%= image_tag "profile.png", class: "avatar mt-0", alt: "dropdown menu", id: "user-avatar" %>
+          </a>
+        <p class="mt-0"><%= current_user.first_name %></p>
+      </div>
+      <div>
+            <%= image_tag "logout.png" %>
+      </div>
   </div>
   <div class="main-content">
     <%= turbo_frame_tag "main_content" do %>
-      <div class="card-purple">
-        <h1><%= @pulse.job_role.capitalize %> Pulse</h1>
-        <p><%= @pulse.job_description %></p>
-        <p>Company: <%= @pulse.company_name %></p>
-        <p>Company Description: <%= @pulse.company_description %></p>
-        <%# <%= link_to edit_pulse_path(@pulse) do %>
-          <%# <i class="fa-solid fa-pen-to-square"></i>
-    <% end %>
+      <div class="card-purple d-flex justify-content-between">
+        <div>
+          <h1><%= @pulse.job_role.capitalize %> Pulse</h1>
+          <p><%= @pulse.job_description %></p>
+          <p>Company: <%= @pulse.company_name %></p>
+          <p>Company Description: <%= @pulse.company_description %></p>
         </div>
+          <div class="mt-0 mb-auto">
+            <%= link_to "Practice", pulse_question_path(@pulse, @pulse.questions.first), data: {turbo: false}, class:"btn-black" %>
+          </div>
+      </div>
+
         <div class="d-flex justify-content-between m-5">
-          <%= link_to "Practice", pulse_question_path(@pulse, @pulse.questions.first), data: {turbo: false}, class:"btn-black" %>
         </div>
         <%= render "results", pulse: @pulse %>
       </div>

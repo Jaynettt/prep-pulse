@@ -22,9 +22,8 @@
       <% end %>
     </div>
       <div class=" profile border-top mt-5 d-flex">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup ="true" aria-expanded="false">
-            <%= image_tag "profile.png", class: "avatar mt-0", alt: "dropdown menu", id: "user-avatar" %>
-          </a>
+         <%= link_to image_tag("profile.png", class: "avatar mt-0", alt: "User Profile", id: "user-avatar"), edit_user_registration_path, class: "avatar" %>
+
         <p class="mt-0"><%= current_user.first_name %></p>
       </div>
   </div>

@@ -11,7 +11,7 @@
 .btn-purple-gradient {
   border-radius: 4px;
   color: white;
-  font-family: 'Merriweather', serif;
+  font-family: 'Nunito', sans-serif;
   padding: 20px 25px;
   background-image: linear-gradient(to right, #A922B8 0%, #2F22A6 53%, #000000 100%);
   transition: background-position 0.5s, box-shadow 0.5s; /* Smooth transition for background and shadow */
@@ -26,10 +26,12 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Slightly stronger shadow on hover */
 }
 
-.btn-black {
-  border-radius: 16px;
+
+.btn-black{
+  border-radius: 6px;
   color: white;
-  padding: 9px 23px;
+  padding: 10px 22px;
+
   background-color: #000000;
   box-shadow: 0px 4px 4px #A922B8;
   display: inline-block; /* Ensure it behaves like a button */
@@ -52,7 +54,7 @@
 .new-pulse-link {
   color: white; /* Default text color */
   text-decoration: none;
-  font-family: 'Merriweather', serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: bold;
   transition: background-position 0.5s ease, color 0.5s ease;
   background-image: linear-gradient(to right, #FF4C8B 0%, #8A30E3 53%); /* Lighter default gradient */

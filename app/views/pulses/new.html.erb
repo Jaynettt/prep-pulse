@@ -1,13 +1,28 @@
 
 <div class="container mt-3">
   <div class="new-pulse-container">
-  <h1 class="mb-4">New Pulse</h1>
-  <%= simple_form_for(@pulse) do |f| %>
-    <%= f.input :job_role %>
-    <%= f.input :company_name%>
-    <%= f.input :company_description %>
-    <%= f.association :categories, as: :check_boxes  %>
-    <%= f.submit value:"Create your Pulse", class: "btn-black" %>
-  <% end %>
+
+    <div class="form-background">
+        <h1 class="gradient-text mb-4">New Pulse</h1>
+      <%= simple_form_for(@pulse) do |f| %>
+        <%= f.input :job_role %>
+        <%= f.input :company_name%>
+        <%= f.input :company_description %>
+          <div class="categories-container">
+            <% Category.all.each do |category| %>
+              <div class="tag" data-category-id="<%= category.id %>">
+                <%= category.name %>
+              </div>
+            <% end %>
+          </div>
+          <%= f.hidden_field :category_ids, value: "", id: "category_ids" %>
+          <div class="create-pulse-button">
+            <%= f.submit value: "Create Pulse", class: "btn-black" %>
+          </div>
+      <% end %>
+    </div>
+
+
   </div>
+
 </div>
