@@ -6,7 +6,7 @@ class PulsesController < ApplicationController
   def show
     @pulse = Pulse.find(params[:id])
     @categories = @pulse.categories.where(name: ['Soft skills', 'Technical skills', 'Psychometric skills'])
-    
+    @pulses = Pulse.where(user: current_user)
   end
 
   def new
