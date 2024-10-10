@@ -28,7 +28,7 @@
         <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-up ", style: "color: #000000;") , question_answer_path(@previous_question, @previous_question.answers.last), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
 
         <% end %>
-         <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-down", style: "color: #0c0d0d;") ,root_path, class: "btn", style: "background-color: white; border: 1px solid #000;" %>
+         <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-down", style: "color: #0c0d0d;") ,pulse_path(@question.pulse), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
         <%#= link_to 'Complete!', root_path, class: " btn-black" %>
       <% else %>
 

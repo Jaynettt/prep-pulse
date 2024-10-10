@@ -13,11 +13,11 @@ puts "Old data cleared."
 puts "Creating users..."
 
 # Define the file paths
-cv_file_path_1 = Rails.root.join('app', 'assets', 'cvs', 'Web_Developer_CV_Example.pdf') 
-cv_file_path_2 = Rails.root.join('app', 'assets', 'cvs', 'Web_Developer_CV_Example.pdf')
+# cv_file_path_1 = Rails.root.join('app', 'assets', 'cvs', 'Web_Developer_CV_Example.pdf')
+# cv_file_path_2 = Rails.root.join('app', 'assets', 'cvs', 'Web_Developer_CV_Example.pdf')
 
 # Check if CV files exist
-if File.exist?(cv_file_path_1) && File.exist?(cv_file_path_2)
+# if File.exist?(cv_file_path_1) && File.exist?(cv_file_path_2)
   user1 = User.create!(
     email: "dhh@rails.com",
     password: "dhh@rails.com",
@@ -26,11 +26,11 @@ if File.exist?(cv_file_path_1) && File.exist?(cv_file_path_2)
     last_name: "Hansen",
     cv_evaluation: "Strong technical skills and leadership qualities."
   )
-  user1.cv.attach(
-    io: File.open(cv_file_path_1),
-    filename: "Web_Developer_CV_Example.pdf",
-    content_type: 'application/pdf'
-  )
+  # user1.cv.attach(
+  #   io: File.open(cv_file_path_1),
+  #   filename: "Web_Developer_CV_Example.pdf",
+  #   content_type: 'application/pdf'
+  # )
 
   user2 = User.create!(
     email: "mats@ruby.com",
@@ -40,17 +40,17 @@ if File.exist?(cv_file_path_1) && File.exist?(cv_file_path_2)
     last_name: "Matsimuto",
     cv_evaluation: "Excellent communication and strategic thinking."
   )
-  user2.cv.attach(
-    io: File.open(cv_file_path_2),
-    filename: "Web_Developer_CV_Example.pdf",
-    content_type: 'application/pdf'
-  )
+  # user2.cv.attach(
+  #   io: File.open(cv_file_path_2),
+  #   filename: "Web_Developer_CV_Example.pdf",
+  #   content_type: 'application/pdf'
+  # )
 
   puts "Users created."
-else
-  puts "Error: One or both CV files do not exist. Please check the file paths."
-  exit
-end
+# else
+#   puts "Error: One or both CV files do not exist. Please check the file paths."
+#   exit
+# end
 
 # Create Categories
 puts "Creating categories..."

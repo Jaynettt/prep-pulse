@@ -1,12 +1,13 @@
 <div id="result_<%= dom_id(pulse) %>" class="pulse">
   <%= turbo_stream_from "result_#{dom_id(pulse)}"%>
- <% if pulse.questions.all? { |question| question.answers.any? && question.answers.all?(&:chat_review?) } %>
-   <%=link_to 'Review answers', question_answer_path(pulse.questions.first, pulse.questions.first.answers.last ), data: {turbo: false}, class: "btn-black" %>
-   <div class="card-purple">
-
-  </div>
+  <% if pulse.questions.all? { |question| question.answers.any? && question.answers.all? { |answer| answer.chat_review? && !answer.evaluation.nil? } } %>
+    <%=link_to 'Review answers', question_answer_path(pulse.questions.first, pulse.questions.first.answers.last ), data: {turbo: false}, class: "btn-black" %>
+    <div class="card-purple">
+      <% pulse.pulse_categories.each do |pulse_category| %>
+        <%= pulse_category.category.name %> : <%= pulse_category.average_rating %>/10
+      <% end %>
+    </div>
   <% else %>
     <p>Generating results...</p>
   <% end %>
 </div>
-
