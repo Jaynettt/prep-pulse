@@ -1,8 +1,14 @@
 <div id="<%= dom_id(pulse) %>" class="pulse">
   <%= turbo_stream_from dom_id(pulse) %>
   <% if pulse.questions.any? && pulse.questions.all?(&:content?) %>
-    <%= link_to 'Start', pulse_question_path(pulse, pulse.questions.first) %>
+  <div class="card-loader">
+    <div id="begin" class="btn-black">
+    <%= link_to 'Start!', pulse_question_path(pulse, pulse.questions.first) %>
+    </div>
+  </div>
   <% else %>
-    <p>Generating questions...</p>
+    <div class="card-loader">
+      <div class="loader"></div>
+    </div>
   <% end %>
 </div>

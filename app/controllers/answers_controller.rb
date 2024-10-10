@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
     total_seconds = seconds.round
     minutes = total_seconds / 60
     seconds = total_seconds % 60
-    "#{minutes} minute#{'s' if minutes != 1} and #{seconds} second#{'s' if seconds != 1}"
+    "#{minutes} min#{'s' if minutes != 1} and #{seconds} sec#{'s' if seconds != 1}"
     # return total_seconds
   end
 
