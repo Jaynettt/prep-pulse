@@ -19,6 +19,7 @@
 
 body{
   background-color: rgb(255, 255, 255);
+  font-family: 'Nunito', sans-serif;
   a{
     text-decoration: none;
 
@@ -28,3 +29,69 @@ body{
   }
 
 }
+
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 6px; /* Adjusted padding */
+  margin: 5px;
+  border-radius: 4; /* Increased rounding for a softer shape */
+  color: white; /* Text color */
+  font-family: 'Nunito', sans-serif; /* Font style */
+  background-color:  #7628aa; /* Default background color */
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Smooth transition */
+  text-align: center; /* Center the text */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Soft shadow */
+  cursor: pointer; /* Pointer on hover */
+  position: relative; /* Relative positioning */
+}
+
+/* Hover effect */
+.tag:hover {
+  background-color: #c642c4; /* Lighter gray on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Selected state */
+.tag.selected {
+  background-color: #3d0047; /* Darker background color when selected */
+}
+
+.new-pulse-container {
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  max-width: 600px; /* Set a max-width for the form */
+  margin: 0 auto; /* Center the container */
+  padding-top: 12%;
+}
+.form-background {
+  background-color: rgba(0, 0, 0, 0.088); /* Translucent black background */
+  padding: 20px; /* Add some padding */
+  border-radius: 10px; /* Optional: round the corners */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.703); /* Optional: add some shadow */
+  width: 100%; /* Full width of the container */
+  max-width: 600px; /* Set a max-width for the form background */
+  margin: 0 auto; 
+  // color: white;/* Center the background */
+}
+
+.create-pulse-button{
+  
+}
+h1.gradient-text {
+  background: linear-gradient(to right, #A922B8, #2F22A6);
+  -webkit-background-clip: text; /* Clips the background to the text */
+  -webkit-text-fill-color: transparent; /* Makes the text itself transparent so only the gradient shows */
+  font-size: 36px; /* Adjust font size as needed */
+  font-weight: bold; /* Make it bold for emphasis */
+}
+
+

@@ -1,11 +1,9 @@
  <%= turbo_frame_tag "main_content" do %>
 <div class="card-purple" data-controller="chart">  
-    <% @category_averages.each do |category| %>
-      <% category.each do |name, average| %>
-        <p><strong><%= name %></strong></p>
-        <%# <p>Average Evaluation: <strong><%= average %></strong></p> %>
-      <% end %>
-    <% end %>
-<%= pie_chart current_user.average_evaluation_by_category %>
+ <h1>Overall Evaluation</h1>
+ <div class="d-flex">
+ <p class="text-overview">This pie chart shows average ratings of soft skills, technical skills, and psychometric skills, each out of 10. It highlights the proportion of each skill category, offering a quick view of strengths and areas for improvement.</p> 
+<%= pie_chart current_user.average_evaluation_by_category, colors: ["#6A0AD6", "#A65EBA", "#D8BFD8"], height: "400px"  %>
+ </div>
 </div>
   <% end %>
