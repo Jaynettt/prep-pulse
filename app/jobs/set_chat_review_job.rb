@@ -21,7 +21,10 @@ class SetChatReviewJob < ApplicationJob
     new_evaluation = response["choices"][0]["message"]["content"].to_i
 
     answer.update!(evaluation: new_evaluation, chat_review: new_chat_review) # Persist the new evaluation
-
+    Turbo::StreamsChannel.broadcast_update_to(
+      "result_pulse_#{answer.question.pulse.id}",
+      target: "result_pulse_#{answer.question.pulse.id}",
+      partial: "pulses/results", locals: { pulse: answer.question.pulse})
 
   end
 end

@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 
   end
 
+  
   def overview
     @category_averages = current_user.average_evaluation_by_category
 

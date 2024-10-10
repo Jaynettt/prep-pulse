@@ -26,13 +26,9 @@ class Pulse < ApplicationRecord
   private
 
   def create_questions
-    return if pulse_categories.blank?
+    SetPulseQuestionsJob.perform_later(self)
 
-    pulse_categories.each do |pulse_category|
-      1.times do
-        Question.create!(pulse_category: pulse_category)
-      end
-    end
+
   end
 
 end
