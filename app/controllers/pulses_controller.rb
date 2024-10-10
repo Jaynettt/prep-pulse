@@ -5,9 +5,8 @@ class PulsesController < ApplicationController
 
   def show
     @pulse = Pulse.find(params[:id])
-
-
     @categories = @pulse.categories.where(name: ['Soft skills', 'Technical skills', 'Psychometric skills'])
+    
   end
 
   def new
@@ -18,15 +17,16 @@ class PulsesController < ApplicationController
     @pulse = Pulse.new(pulse_params)
     @pulse.user = current_user
     if @pulse.save
-      first_question = @pulse.questions.order(:id).first
-      if first_question
-        redirect_to pulse_question_path(@pulse, first_question)
-      else
-        redirect_to pulses_path, notice: "No questions found for this Pulse."
-      end
+      # first_question = @pulse.questions.order(:id).first
+      # if first_question
+      #   redirect_to pulse_question_path(@pulse, first_question)
+      # else
+        redirect_to loading_pulse_path(@pulse)
+      # end
     else
       render :new, status: :unprocessable_entity
     end
+
   end
 
   def edit
@@ -61,6 +61,10 @@ class PulsesController < ApplicationController
     @pulse.destroy
 
     redirect_to pulses_path, status: :see_other
+  end
+
+  def loading
+    @pulse = Pulse.find(params[:id])
   end
 
   private

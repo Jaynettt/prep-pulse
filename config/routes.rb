@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   get "overview", to: "pages#overview"
   resources :pulses do
+    member do
+      get "loading", to: "pulses#loading"
+    end
     resources :pulse_categories, only: [:index, :show]
     resources :questions, only: [:index, :show]
   end

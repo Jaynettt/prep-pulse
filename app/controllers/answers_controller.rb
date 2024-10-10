@@ -51,7 +51,7 @@ class AnswersController < ApplicationController
       if @next_question && @next_question.pulse_category.pulse == @pulse
         redirect_to question_path(@next_question)
       else
-        redirect_to root_path, notice: "You have completed all the questions."
+        redirect_to pulse_path(@pulse), notice: "You have completed all the questions."
       end
     else
       flash[:error] = @answer.errors.full_messages.join(', ')
