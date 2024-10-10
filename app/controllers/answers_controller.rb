@@ -17,6 +17,11 @@ class AnswersController < ApplicationController
     else
       @next_question = nil
     end
+    if @previous_question && @previous_question.pulse_category.pulse == @pulse
+
+    else
+      @previous_question = nil
+    end
   end
 
   def format_duration(seconds)
