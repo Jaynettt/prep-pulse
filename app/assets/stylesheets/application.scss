@@ -15,15 +15,16 @@
 
 @import "categories/index";
 @import "questions/show";
+@import "pulses/results";
 
 body{
   background-color: rgb(255, 255, 255);
   a{
     text-decoration: none;
-    
+
   }
   h5{
     font-weight: bold;
   }
-  
+
 }
