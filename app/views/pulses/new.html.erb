@@ -8,14 +8,8 @@
         <%= f.input :job_role %>
         <%= f.input :company_name%>
         <%= f.input :company_description %>
-          <div class="categories-container">
-            <% Category.all.each do |category| %>
-              <div class="tag" data-category-id="<%= category.id %>">
-                <%= category.name %>
-              </div>
-            <% end %>
-          </div>
-          <%= f.hidden_field :category_ids, value: "", id: "category_ids" %>
+     <%= f.association :categories, collection: Category.all, as: :check_boxes %>
+          <%# <%= f.hidden_field :category_ids, value: "", id: "category_ids" %> 
           <div class="create-pulse-button">
             <%= f.submit value: "Create Pulse", class: "btn-black" %>
           </div>
