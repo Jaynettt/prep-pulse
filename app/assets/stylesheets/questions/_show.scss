@@ -12,7 +12,7 @@
   align-items: center;
 
   .form-control{
-    background-color: transparent; 
+    background-color: transparent;
     border: none;
     border-bottom: 1px solid black;
     height: 1rem;
@@ -22,17 +22,25 @@
       box-shadow: none;
     }
   }
-  .time-display{
-    font-size: 32px;
-    background-image: linear-gradient(to right, #A922B8 0%, #2F22A6  53%, #000000  100%);
-    background-size: 200% auto;
-    border-radius: 16px;
-    color: white;
-    padding: 8px 16px;
-  }
+
   .timer{
     i{
       font-size: 24px;
     }
+    position: absolute; /* Keep this if you have it */
+    top: 20px; /* Adjust if needed */
+    right: 20px; /* Adjust if needed */
+    display: flex; /* Align icon and text */
+    align-items: center; /* Center vertically */
+
+  .time-display{
+    font-size: 28px;
+    background-image: linear-gradient(to right, #A922B8 0%, #2F22A6  53%, #000000  100%);
+    background-size: 200% auto;
+    border-radius: 4px;
+    color: white;
+    padding: 8px 16px;
   }
+  }
+
 }
