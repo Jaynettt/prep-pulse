@@ -11,12 +11,11 @@
 .btn-purple-gradient {
   border-radius: 4px;
   color: white;
-  font-family: 'Nunito', sans-serif;
   padding: 20px 25px;
   background-image: linear-gradient(to right, #A922B8 0%, #2F22A6 53%, #000000 100%);
   transition: background-position 0.5s, box-shadow 0.5s; /* Smooth transition for background and shadow */
   background-size: 200% auto;
-  margin-bottom: 52px;
+  margin-bottom: 30px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow around the button */
 }
@@ -54,7 +53,6 @@
 .new-pulse-link {
   color: white; /* Default text color */
   text-decoration: none;
-  font-family: 'Nunito', sans-serif;
   font-weight: bold;
   transition: background-position 0.5s ease, color 0.5s ease;
   background-image: linear-gradient(to right, #FF4C8B 0%, #8A30E3 53%); /* Lighter default gradient */
