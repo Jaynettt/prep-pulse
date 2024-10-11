@@ -1,4 +1,6 @@
 
 if Rails.env.production?
-  SolidQueue::Record.establish_connection :production
+  if defined?(SolidQueue::Record)
+    SolidQueue::Record.establish_connection :production
+  end
 end
