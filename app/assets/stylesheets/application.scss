@@ -45,12 +45,17 @@ body{
 
 // .form-check-input[type="checkbox"]:active {
 //   background-color: #3d0047;
-// }
 
-.association {
+.form-check {
   display: flex;
   flex-direction: row;
 }
+
+.form-control::placeholder {
+  color: #afafaf; /* Desired placeholder color */
+  opacity: 1; /* Fully opaque */
+}
+
 
 .association label {
   display: inline-block;
@@ -84,7 +89,7 @@ body{
   justify-content: center; /* Center items vertically */
   max-width: 600px; /* Set a max-width for the form */
   margin: 0 auto; /* Center the container */
-  padding-top: 12%;
+  padding-top: 5%;
 }
 .form-background {
   background-color: rgba(0, 0, 0, 0.088); /* Translucent black background */
@@ -107,5 +112,9 @@ h1.gradient-text {
   font-size: 36px; /* Adjust font size as needed */
   font-weight: bold; /* Make it bold for emphasis */
 }
-
+#begin a{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: xx-large;
+  padding:10px 30px;
+}
 

@@ -4,10 +4,15 @@
 
     <div class="form-background">
         <h1 class="gradient-text mb-4">New Pulse</h1>
+        <%# <p> Prepare to ace your interview!</p> %>
+
+        <%# <br> %>
+        <%# <p> Fill in the details below to generate tailored questions based on the job and select categories to focus on key skills.</p> %>
+
       <%= simple_form_for(@pulse) do |f| %>
-        <%= f.input :job_role %>
-        <%= f.input :company_name%>
-        <%= f.input :company_description %>
+        <%= f.input :job_role, placeholder: "(What is the position you are applying for?)" %>
+        <%= f.input :company_name, placeholder: "(Enter the name of the company you're preparing for.)" %>
+        <%= f.input :company_description, placeholder: "(Give a brief description of the company or its industry.)" %>
         <div class="association">
           <%= f.association :categories, collection: Category.all, as: :check_boxes %>
         </div>
@@ -20,5 +25,4 @@
 
 
   </div>
-
 </div>
