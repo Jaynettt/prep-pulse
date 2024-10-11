@@ -1,12 +1,12 @@
 <div class="dashboard-container d-flex">
   <div class="sbar-container">
     <%= link_to  overview_path, data: {turbo_frame: "main_content"} do %>
-      <h3 class="ms-5 mb-5 mt-4 overview-link"> 
+      <h3 class="ms-5 mb-5 mt-4 overview-link">
       <span class="dashboard-icon"> <%= image_tag "pie-chart" %></span>
-      Overview 
+      Overview
       </h3>
     <% end %>
-    <h3 class="ms-5"> 
+    <h3 class="ms-5">
       <span class="dashboard-icon"> <%= image_tag "pulse" %></span>
       Pulses
     </h3>
@@ -17,7 +17,7 @@
     </div>
     <div class="d-flex">
       <%= link_to new_pulse_path, class: 'new-pulse-link d-flex align-items-center' do %>
-        <span class="dashboard-icon"> <%= image_tag "add" %></span>
+        <span class="dashboard-icon"> <%= image_tag "add.png" %></span>
         New Pulse
       <% end %>
     </div>
