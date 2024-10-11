@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="timer"
 export default class extends Controller {
-  static targets = ["form", "start"];
+  static targets = ["form", "start", "slidingDiv"];
 
   connect() {
     // Set the total time for the quiz (in seconds)
@@ -20,6 +20,7 @@ export default class extends Controller {
         clearInterval(this.timer);
         // alert("Time's up! Submitting your answer.");
         this.formTarget.submit(); // Call the method correctly
+
       } else {
         const minutes = Math.floor((timeLeft % 3600) / 60);
         const seconds = timeLeft % 60;
@@ -32,6 +33,15 @@ export default class extends Controller {
         timeLeft--;
       }
     }, 1000);
+  }
+
+  submit(event) {
+    event.preventDefault();
+    this.slidingDivTarget.classList.add('slide-out');
+
+    setTimeout(() => {
+      this.formTarget.submit();
+    }, 500); // Adjust timing to match the CSS animation
   }
 
 

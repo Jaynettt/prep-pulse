@@ -1,10 +1,10 @@
-  <div class="fghy">
+  <div class="fghy" data-controller="answer">
     <!-- Duration Spent Display -->
     <div id="timer" class="timer">
 
       <span class="time-display"><%= @formatted_duration %></span>
     </div>
-<div class="container" style="position: relative;">
+<div class="container drop-in" style="position: relative;" data-answer-target="slidingDiv">
 
     <div class="questions card-purple" style="display: flex; justify-content: center; margin-top: 60px;">
       <div class="vwew mt-3">
@@ -28,11 +28,11 @@
         <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-up ", style: "color: #000000;") , question_answer_path(@previous_question, @previous_question.answers.last), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
 
         <% end %>
-         <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-down", style: "color: #0c0d0d;") ,pulse_path(@question.pulse), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
+         <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-down", style: "color: #0c0d0d;") ,pulse_path(@question.pulse), class: "btn", style: "background-color: white; border: 1px solid #000;", data: { action: "click->answer#slideDown", answer_target: "down"} %>
         <%#= link_to 'Complete!', root_path, class: " btn-black" %>
       <% else %>
 
-        <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-down", style: "color: #0c0d0d;") , question_answer_path(@next_question, @next_question.answers.first), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
+        <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-down", style: "color: #0c0d0d;") , question_answer_path(@next_question, @next_question.answers.last), class: "btn", style: "background-color: white; border: 1px solid #000;", data: { action: "click->answer#slideDown", answer_target: "down"} %>
         <% unless @previous_question.nil? %>
         <%= link_to content_tag(:i, '', class: "fa-solid fa-arrow-up", style: "color: #000000;") , question_answer_path(@previous_question, @previous_question.answers.last), class: "btn", style: "background-color: white; border: 1px solid #000;" %>
         <% end %>
