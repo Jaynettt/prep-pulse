@@ -2,3 +2,34 @@
   display: flex;
   justify-content: end;
 }
+
+.loader-review-container {
+  /* HTML: <div class="loader"></div> */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+
+  .loader-review {
+    width: 160px;
+    height: 32px;
+    border-radius: 20px;
+    color: rgb(169, 34, 184);
+    border: 2px solid;
+    position: relative;
+  }
+  .loader-review::before {
+    content: "";
+    position: absolute;
+    margin: 2px;
+    inset: 0 100% 0 0;
+    border-radius: inherit;
+    background: currentColor;
+    animation: l6 2s infinite;
+  }
+  @keyframes l6 {
+      100% {inset:0}
+  }
+}
