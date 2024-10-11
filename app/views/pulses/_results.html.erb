@@ -5,7 +5,7 @@
       <div class="align-end">
         <%=link_to 'Review answers', question_answer_path(pulse.questions.first, pulse.questions.first.answers.last ), data: {turbo: false}, class: "btn-black" %>
       </div>
-      <%= bar_chart pulse.pulse_categories.map { |pulse_category| [pulse_category.category.name, pulse_category.average_rating] },
+      <%= bar_chart pulse.pulse_categories.map { |pulse_category| [pulse_category.category.name, pulse_category.average_rating.round(2)] },
       height: "300px",
       colors: ["#8e44ad"],
       library: {
@@ -18,6 +18,11 @@
       } %>
     </div>
   <% else %>
-    <p>Generating results...</p>
+    <div class="card-purple">
+      <div class="loader-review-container">
+    <h4>Generating your feedback</h4>
+        <div class="loader-review"></div>
+      </div>
+    </div>
   <% end %>
 </div>
