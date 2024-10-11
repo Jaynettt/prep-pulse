@@ -74,15 +74,25 @@
   }
   margin-right: 16px; 
 }
+
 .avatar{
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  margin-left: 1rem;
 }
+
 .profile{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding-top: 20px;
+  display: grid !important;
+  grid-template-columns: 1fr 2fr !important;
+  padding-top: 8px;
+
+  image {
+    align-items: center;
+  }
+
+  title {
+    align-items: center;
+  }
 }
 
 .text-overview {
