@@ -35,7 +35,11 @@
     color: transparent; /* Text color will be transparent to show the gradient */
     text-shadow: none; /* Clean appearance without a glow */
   }
-
+  
+  .logout img{
+    width: 50%;
+    // height: 50%;
+  }
 }
 
 .sbar-container::-webkit-scrollbar {
@@ -47,7 +51,7 @@
   padding: 40px;
   height: calc(100vh - 56px);
   overflow-y: scroll;
-
+  
 }
 
 .main-content::-webkit-scrollbar {
