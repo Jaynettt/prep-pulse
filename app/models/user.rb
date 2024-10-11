@@ -20,22 +20,22 @@ class User < ApplicationRecord
       .where(pulses: { user_id: self.id })
       .distinct
       .pluck(:id, :name)
-  
+
     category_averages = categories_with_evaluations.map do |category_id, category_name|
       evaluations = Answer
         .joins(question: { pulse_category: { category: :pulse_categories } })
         .joins(question: { pulse_category: :pulse })
         .where(pulse_categories: { category_id: category_id }, pulses: { user_id: self.id })
         .pluck(:evaluation)
-  
+
       average = evaluations.any? ? evaluations.compact.sum.to_f / evaluations.size : 0
-  
-      [category_name, average]
+
+      [category_name, average.round(2)]
     end
-  
+
     category_averages.to_h # Return as a hash for Chartkick
   end
-  
+
 
   private
 
@@ -63,15 +63,15 @@ class User < ApplicationRecord
       temp_file.binmode
       temp_file.write(cv_file.download)
       temp_file.rewind
-  
+
       # Use RTesseract to extract text from the temporary file
       image = RTesseract.new(temp_file.path)
       text = image.to_s  # Extracted text from the imagean
-  
+
       text
     end
   end
-  
+
 
   def evaluate_cv_content(cv_content)
     # Initialize OpenAI client and proceed with evaluation

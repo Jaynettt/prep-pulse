@@ -21,6 +21,20 @@
 
       box-shadow: none;
     }
+
+    .vwew {
+      position: relative;
+      .arrow_up {
+        position: absolute;
+        right: 0;
+      }
+
+      .arrow_down {
+        position: absolute;
+        right: 0;
+      }
+    }
+
   }
 
   .timer{
@@ -79,4 +93,20 @@
 
 .slide-out {
   animation: slideOut 0.5s ease-in forwards;
+}
+
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-in forwards;
 }
