@@ -1,6 +1,6 @@
 <div id="result_<%= dom_id(pulse) %>" class="pulse">
   <%= turbo_stream_from "result_#{dom_id(pulse)}"%>
-  <% if pulse.questions.all? { |question| question.answers.any? && question.answers.all? { |answer| answer.chat_review? && !answer.evaluation.nil? } } %>
+ <% if pulse.questions.all? { |question| question.answers.any? && question.answers.all? { |answer| answer.chat_review? && answer.evaluation.to_i > 0 } } %>
     <div class="card-purple">
       <div class="align-end">
         <%=link_to 'Review answers', question_answer_path(pulse.questions.first, pulse.questions.first.answers.last ), data: {turbo: false}, class: "btn-black" %>
