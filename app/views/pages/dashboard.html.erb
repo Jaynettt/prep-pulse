@@ -21,11 +21,11 @@
         New Pulse
       <% end %>
     </div>
-      <div class=" profile border-top mt-5 d-flex">
-         <%= link_to image_tag("profile.png", class: "avatar mt-0", alt: "User Profile", id: "user-avatar"), edit_user_registration_path, class: "avatar" %>
+    <div class=" profile border-top mt-5 d-flex">
+        <%= link_to image_tag("profile.png", class: "avatar mt-0", alt: "User Profile", id: "user-avatar"), edit_user_registration_path, class: "avatar" %>
 
-        <p class="mt-0"><%= current_user.first_name %></p>
-      </div>
+      <p class="mt-0"><%= current_user.first_name %></p>
+    </div>
   </div>
 
   <div class="main-content">
